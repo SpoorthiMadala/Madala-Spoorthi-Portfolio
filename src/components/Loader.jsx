@@ -7,11 +7,16 @@ const Loader = ({ position }) => {
     <Html
       position={position || [0, 0, 0]}
       center
+      distanceFactor={20}
+      zIndexRange={[100, 0]}
       className="flex flex-col items-center justify-center pointer-events-none select-none"
     >
-      <div className="relative flex flex-col items-center z-[100]">
+      <div className="relative flex flex-col items-center z-[100] scale-125 md:scale-150">
+        {/* Glowing aura to ensure visibility against any background */}
+        <div className="absolute inset-0 bg-blue-500/20 blur-[60px] rounded-full" />
+
         {/* Minimal HUD ring for context */}
-        <div className="absolute -inset-8 border border-blue-500/10 rounded-full animate-pulse" />
+        <div className="absolute -inset-10 border border-blue-500/20 rounded-full animate-pulse" />
 
         {/* Integer Percentage */}
         <span className="text-4xl md:text-6xl font-black text-white drop-shadow-[0_0_12px_rgba(59,130,246,0.4)] font-mono tracking-tighter">
